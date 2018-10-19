@@ -1,0 +1,6 @@
+Goals:
+- Learn BioInformatics principles
+- Produce a portfolio, appropriate for public consumption, that
+  demonstrates my ability to write clear, concise, and well-tested code.
+-- should have tests, should do another pass to break into utils, etc...
+-- probably should be Python3
