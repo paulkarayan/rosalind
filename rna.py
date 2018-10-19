@@ -19,7 +19,7 @@ def dna_to_rna(dna_string):
 if __name__ == "__main__":
     ## Test
     # main(SAMPLE_DATASET)
-    assert main(SAMPLE_DATASET), SAMPLE_OUTPUT
+    assert main(SAMPLE_DATASET) == SAMPLE_OUTPUT
 
     ## Prod
     with open("./datasets/rosalind_rna.txt", 'r') as fptr:

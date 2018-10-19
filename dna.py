@@ -23,7 +23,7 @@ def count_nucleotide_frequency(dna_string):
 
 if __name__ == "__main__":
     ## Test
-    assert main(SAMPLE_DATASET), SAMPLE_OUTPUT
+    assert main(SAMPLE_DATASET) == SAMPLE_OUTPUT
 
     ## Prod
     with open("./datasets/rosalind_rna.txt", 'r') as fptr:
