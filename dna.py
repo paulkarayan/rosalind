@@ -5,19 +5,19 @@ import collections
 
 ## test cases
 SAMPLE_DATASET = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
-SAMPLE_OUTPUT = "0 12 17 21"
+SAMPLE_OUTPUT = "20 12 17 21"
 
 
 def main(dna_string):
     nucleotide_counter = collections.Counter(dna_string)
 
     print nucleotide_counter
-    print nucleotide_counter["A"]
-    # print "{A}".format(,
-                                #    nucleotide_counter.get("C"),
-                                #    nucleotide_counter.get("G"),
-                                #    nucleotide_counter.get("T"),
-                                   )
+    print 
+    print "{A} {C} {G} {T}".format(A=nucleotide_counter["A"],
+                                   C=nucleotide_counter["C"],
+                                   G=nucleotide_counter["G"],
+                                   T=nucleotide_counter["T"],
+                                  )
 
 if __name__ == "__main__":
     main(SAMPLE_DATASET)
