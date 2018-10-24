@@ -36,11 +36,11 @@ def main(fasta_block):
 
     max_dict = {}
     for label, bases in fasta_dict.items():
-        print gc_content(bases) * 100
+        # print gc_content(bases) * 100
         max_dict[label] = gc_content(bases) * 100
     # get max
     max_gc_label = max(max_dict.iteritems(), key=operator.itemgetter(1))[0]
-    print max_gc_label + "\n" + '%.6f' % max_dict[max_gc_label]
+    # print max_gc_label + "\n" + '%.6f' % max_dict[max_gc_label]
     return max_gc_label + "\n" + '%.6f' % max_dict[max_gc_label]
 
 def gc_content(dna_string):
@@ -71,8 +71,8 @@ def fasta_breakup(fasta_block):
 if __name__ == "__main__":
     ## Test
     # print main(SAMPLE_DATASET)
-    print SAMPLE_OUTPUT.strip()
-    assert main(SAMPLE_DATASET) == SAMPLE_OUTPUT.strip()
+    result = SAMPLE_OUTPUT.replace(" ", "")
+    assert main(SAMPLE_DATASET) == result
 
     ## Prod
     # with open("./datasets/rosalind_XXX.txt", 'r') as fptr:
