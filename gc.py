@@ -75,5 +75,7 @@ if __name__ == "__main__":
     assert main(SAMPLE_DATASET) == result
 
     ## Prod
-    # with open("./datasets/rosalind_XXX.txt", 'r') as fptr:
-    #    dna = fptr.read().strip().split("\n")
+    with open("./datasets/rosalind_gc.txt", 'r') as fptr:
+       dna = fptr.read()
+       print dna
+       print main(dna)
