@@ -47,5 +47,18 @@ from random import randrange
 def rand_list(length, limit):
     return [randrange(1, limit) for alpha in range(length)]
 
-lister = rand_list(10, 10)
-print merge_sort(lister)
+# lister = rand_list(10, 10)
+# print merge_sort(lister)
+
+SAMPLE_DATASET = """10
+20 19 35 -18 17 -20 20 1 4 4"""
+SAMPLE_OUTPUT = "-20 -18 1 4 4 17 19 20 20 35"
+
+def prepped_merge_sort(dataset):
+    clean_data_list = dataset.split("\n")[1].split(" ")
+    clean_data_list = map(int, clean_data_list)
+    sorted_list = merge_sort(clean_data_list)
+ 
+    return  " ".join(map(str, sorted_list))
+
+assert prepped_merge_sort(SAMPLE_DATASET) == SAMPLE_OUTPUT
