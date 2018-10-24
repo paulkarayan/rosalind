@@ -62,3 +62,9 @@ def prepped_merge_sort(dataset):
     return  " ".join(map(str, sorted_list))
 
 assert prepped_merge_sort(SAMPLE_DATASET) == SAMPLE_OUTPUT
+
+with open("./datasets/rosalind_ms.txt", 'r') as fptr:
+    file_input_data = fptr.read()
+    output_data = prepped_merge_sort(file_input_data)
+with open("./datasets/output_ms.txt", 'w') as fptr:
+    fptr.write(output_data)
