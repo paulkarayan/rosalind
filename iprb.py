@@ -1,0 +1,18 @@
+## test cases
+SAMPLE_DATASET = "GATGGAACTTGACTACGTAAATT"
+SAMPLE_OUTPUT = "GAUGGAACUUGACUACGUAAAUU"
+
+
+def main():
+    print 
+    return 
+
+
+if __name__ == "__main__":
+    ## Test
+    # main(SAMPLE_DATASET)
+    assert main(SAMPLE_DATASET) == SAMPLE_OUTPUT
+
+    ## Prod
+    # with open("./datasets/rosalind_XXX.txt", 'r') as fptr:
+    #    dna = fptr.read().strip().split("\n")
