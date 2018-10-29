@@ -57,7 +57,7 @@ def consensus(result_matrix):
     consensus = [('A', 0) for item in range(len(result_matrix['A']))]
     for k, x in result_matrix.items():
         for idx in range(len(x)):
-            if x[idx] >= consensus[idx][1]:
+            if x[idx] > consensus[idx][1]:
                 consensus[idx] = (k, x[idx])
     return "".join([item[0] for item in consensus])
 
@@ -66,14 +66,22 @@ if __name__ == "__main__":
     assert main(SAMPLE_DATASET) == SAMPLE_OUTPUT
 
     ## Prod
-    with open("./datasets/output_cons_1.txt", 'r') as fptr:
-        output = fptr.read()
     with open("./datasets/rosalind_cons.txt", 'r') as fptr:
         fastas = fptr.read().strip()
         my_output = main(fastas)
+    with open("./datasets/output_cons.txt", 'w') as fptr:
+        fptr.write(my_output)
 
-        import difflib
 
-        d = difflib.Differ()
-        diff = d.compare(output.splitlines(), my_output.splitlines())
-        print '\n'.join(diff)
+    # with open("./datasets/output_cons_1.txt", 'r') as fptr:
+    #     output = fptr.read().strip()
+
+    # with open("./datasets/rosalind_cons_1.txt", 'r') as fptr:
+    #     fastas = fptr.read().strip()
+    #     my_output = main(fastas)
+
+    #     import difflib
+
+    #     d = difflib.Differ()
+    #     diff = d.compare(output.splitlines(), my_output.splitlines())
+    #     print '\n'.join(diff)

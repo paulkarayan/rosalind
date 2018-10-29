@@ -66,5 +66,6 @@ if __name__ == "__main__":
     with open("./datasets/rosalind_hea.txt", 'r') as fptr:
        dataset = fptr.read().strip()
        output_data = main(dataset)
+       print output_data
     with open("./datasets/output_hea.txt", 'w') as fptr:
-        fptr.write(list(output_data))
+        fptr.write(output_data)
