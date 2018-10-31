@@ -26,6 +26,15 @@ RNA_CODON_TABLE = {
     'UGG': 'W',     'CGG': 'R',     'AGG': 'R',     'GGG': 'G'
 }
 
+def translate_rna_to_protein(rna_string, start_pos=0):
+    protein_string = ''
+    for pos in range(start_pos, len(rna_string), 3):
+        codon = rna_string[pos:pos+3]
+        if RNA_CODON_TABLE[codon] == 'stop':
+            return protein_string
+        protein_string += RNA_CODON_TABLE[codon]
+    return protein_string
+
 def dna_to_rna(dna_string):
     return dna_string.replace('T', 'U') 
 
