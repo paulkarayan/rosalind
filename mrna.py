@@ -2,7 +2,7 @@
 # Return: The total number of different RNA strings from which the protein could have been 
 # translated, modulo 1,000,000. (Don't neglect the importance of the stop codon in protein translation.)
 
-from prot import RNA_CODON_TABLE
+from utils import RNA_CODON_TABLE
 
 ## test cases
 SAMPLE_DATASET = "MA"
