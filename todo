@@ -1,0 +1,11 @@
+numpy for cons - needs to work
+
+utils - need docstrings, tests
+
+testing - break out into separate files. show pytest?
+
+some better stripping/whitespace handling.
+
+utils - move file creation with better whitespace/stripping here to be reused
+
+split util constants into own file

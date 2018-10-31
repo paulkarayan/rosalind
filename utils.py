@@ -1,5 +1,12 @@
 # U always need Utils. har har.
 
+REV_SYMBOLS = {
+    "A": "T",
+    "T": "A",
+    "C": "G",
+    "G": "C"
+}
+
 def chunks(l, n):
     """Yield successive n-sized chunks from l."""
     for i in range(0, len(l), n):
@@ -21,3 +28,9 @@ def fasta_breakup(fasta_block):
         fasta_dict[fasta_label] = bases
 
     return fasta_dict
+
+
+
+def reverse_complement(dna_string):
+    rev_comp = [REV_SYMBOLS[base] for base in reversed(list(dna_string))]
+    return rev_comp
