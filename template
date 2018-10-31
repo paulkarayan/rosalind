@@ -17,4 +17,4 @@ if __name__ == "__main__":
 
     ## Prod
     #with open("./datasets/rosalind_XXX.txt", 'r') as fptr:
-    #    dna = fptr.read().strip()
+        # dna = fptr.read().strip()
