@@ -12,42 +12,30 @@ SAMPLE_OUTPUT = """1 2 3
 def main(input_data):
     perm_length, perm = input_data.split("\n")
     perm_length = int(perm_length)
-    perm = perm.split(" ")
+    perm = map(int, perm.split(" "))
 
-    increasing_cache, decreasing_cache = dict(), dict()
 
-    largest_increasing_subsequence(perm, increasing_cache, lis='')
+    for idx in range(perm_length):
+        print perm[idx:]
+        print lgis(perm[idx:])
 
-def largest_increasing_subsequence(array, cache, lis):
-    for idx in range(len(array)-1, -1, -1):
-        print idx, array[idx]
-        # use cache
-        if array[idx] in cache:
-            lis = array[idx] + cache[array[idx]]
-            print lis, "<cache>"
-        # if previous item is smaller (e.g. we have increasing seq)
-        # append...
-        if array[idx-1] < array[idx]:
-            lis += str(array[idx])
-            if str(array[idx]) not in cache.keys():
-                cache[str(array[idx])] = lis
-            elif len(lis) > cache[str(array[idx])]:
-                cache[str(array[idx])].update(lis)
-            else:
-                print "else"
-                
-            print lis, "<add to cache - keep going>", cache
-            continue
-        else:
-            lis = str(array[idx]) + lis
-            cache[str(array[idx])] = lis
-            print lis, "<add to cache - bust>", cache
-            lis = ''
-
+def lgis(array):
+    longest_seq, sequence = [array[0]], [array[0]]
+    for idx in range(len(array)-1):
+        for inner_idx in range(idx+1, len(array)):
+            print idx, array[idx], array[inner_idx], inner_idx
+            if array[idx] < array[inner_idx]:
+                print "bigger", array[idx], array[inner_idx]
+                sequence.append(array[inner_idx])
+                print sequence, longest_seq, "*** seq check"
+                if len(sequence) >= len(longest_seq):
+                    longest_seq = sequence
+                    sequence = [array[0]]
+        print longest_seq, array[idx], "<---longest"
 
 if __name__ == "__main__":
     ## Test
-    # main(SAMPLE_DATASET)
+    print main(SAMPLE_DATASET)
     assert main(SAMPLE_DATASET) == SAMPLE_OUTPUT
 
     ## Prod
